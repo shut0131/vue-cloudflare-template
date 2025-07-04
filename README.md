@@ -12,7 +12,6 @@ Vue 3 + TypeScript + Cloudflare Workers + D1 Database のフルスタックテ�
 - **MSW** (ローカルAPIモック)
 - **Vitest** (ユニットテスト)
 - **Playwright** (E2Eテスト)
-- **GitHub Actions** (CI/CD)
 - **pnpm** (パッケージマネージャー)
 
 ## セットアップ
@@ -73,8 +72,7 @@ pnpm worker:deploy
 │   ├── types/         # TypeScript型定義
 │   └── tests/         # テストファイル
 ├── e2e/               # E2Eテスト
-├── migrations/        # D1マイグレーション
-└── .github/workflows/ # GitHub Actions
+└── migrations/        # D1マイグレーション
 ```
 
 ## API開発
