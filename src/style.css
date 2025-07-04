@@ -1,0 +1,92 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* ライトモードのカラー変数 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #f8f8f8;
+  --bg-code: #f6f8fa;
+  --text-primary: #213547;
+  --text-secondary: #666666;
+  --text-tertiary: #333333;
+  --border-color: #e0e0e0;
+  --border-secondary: #dadce0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #42b883;
+  --accent-hover: #35a372;
+  --header-bg: #2c3e50;
+  --header-text: #ffffff;
+  --success-color: #4CAF50;
+  --error-color: #f44336;
+  --link-color: #42b883;
+  
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ダークモード */
+:root.dark {
+  /* ダークモードのカラー変数 */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2a2a2a;
+  --bg-code: #2d2d2d;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #d0d0d0;
+  --border-color: #404040;
+  --border-secondary: #505050;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --accent-color: #42b883;
+  --accent-hover: #5bc99f;
+  --header-bg: #1a1a1a;
+  --header-text: #e0e0e0;
+  --success-color: #66BB6A;
+  --error-color: #ef5350;
+  --link-color: #5bc99f;
+  
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+/* ダークモードでのコードハイライト調整 */
+.dark .hljs {
+  background: var(--bg-code);
+  color: var(--text-primary);
+}
+
+.dark pre {
+  background-color: var(--bg-code) !important;
+}
+
+.dark code {
+  background-color: var(--bg-code) !important;
+  color: var(--text-primary);
+}

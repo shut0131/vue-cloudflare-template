@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run pages:deploy:*)",
+      "Bash(rm:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(wrangler d1 execute:*)",
+      "Bash(npm run:*)"
+    ],
+    "deny": []
+  }
+}

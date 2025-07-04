@@ -1,0 +1,17 @@
+name = "vue-markdown-editor"
+main = "src/worker.js"
+compatibility_date = "2024-01-01"
+
+# Workers Sites設定
+[site]
+bucket = "./dist"
+
+# D1 Database bindings
+[[d1_databases]]
+binding = "DB"
+database_name = "markdown-editor-db"
+database_id = "39ade3b4-a425-4471-90f5-9a1ee17a43cd"
+
+# 環境変数（必要に応じて）
+[vars]
+# ENVIRONMENT = "production"
