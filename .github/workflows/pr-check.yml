@@ -118,7 +118,7 @@ jobs:
         run: pnpm test:e2e --project=${{ matrix.browser }}
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: playwright-report-${{ matrix.browser }}

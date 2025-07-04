@@ -36,7 +36,7 @@ jobs:
         run: pnpm test run
 
       - name: Upload coverage reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coverage-report
@@ -75,7 +75,7 @@ jobs:
         run: pnpm test:e2e
 
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
@@ -83,7 +83,7 @@ jobs:
           retention-days: 7
 
       - name: Upload test videos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-videos
