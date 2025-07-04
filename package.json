@@ -5,23 +5,41 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "worker:dev": "wrangler dev",
     "worker:deploy": "wrangler deploy",
     "pages:dev": "wrangler pages dev dist",
     "pages:deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
-    "dompurify": "^3.2.6",
-    "highlight.js": "^11.11.1",
-    "marked": "^16.0.0",
     "vue": "^3.5.17"
   },
   "devDependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",
+    "@cloudflare/workers-types": "^4.20250704.0",
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.10",
     "@vitejs/plugin-vue": "^6.0.0",
+    "@vitest/ui": "^3.2.4",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^18.0.1",
+    "msw": "^2.10.2",
+    "typescript": "^5.8.3",
     "vite": "^7.0.0",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.1",
     "wrangler": "^4.23.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

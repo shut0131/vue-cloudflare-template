@@ -2,29 +2,39 @@ import { getAssetFromKV } from '@cloudflare/kv-asset-handler'
 import manifestJSON from '__STATIC_CONTENT_MANIFEST'
 
 // APIハンドラーのインポート
-import { onRequest as handleSave, onRequestOptions as handleSaveOptions } from '../functions/api/save.js'
-import { onRequest as handleLoad, onRequestOptions as handleLoadOptions } from '../functions/api/load.js'
+import { onRequest as handleExample, onRequestOptions as handleExampleOptions } from '../functions/api/example'
+import { onRequest as handleSession, onRequestOptions as handleSessionOptions } from '../functions/api/session'
 
 const assetManifest = JSON.parse(manifestJSON)
 
+interface Env {
+  __STATIC_CONTENT: KVNamespace
+  DB?: D1Database
+}
+
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
     
     // APIルーティング
-    if (url.pathname === '/api/save') {
+    if (url.pathname === '/api/example') {
       if (request.method === 'OPTIONS') {
-        return handleSaveOptions({ request, env, ctx })
+        return handleExampleOptions({ request, env, ctx })
       }
-      return handleSave({ request, env, ctx })
+      return handleExample({ request, env, ctx })
     }
     
-    if (url.pathname === '/api/load') {
+    if (url.pathname === '/api/session') {
       if (request.method === 'OPTIONS') {
-        return handleLoadOptions({ request, env, ctx })
+        return handleSessionOptions({ request, env, ctx })
       }
-      return handleLoad({ request, env, ctx })
+      return handleSession({ request, env, ctx })
     }
+    
+    // Add more API routes here as needed
+    // if (url.pathname === '/api/your-endpoint') {
+    //   return handleYourEndpoint({ request, env, ctx })
+    // }
     
     // 静的アセットの処理
     try {
@@ -44,7 +54,7 @@ export default {
           ASSET_MANIFEST: assetManifest,
         }
       )
-    } catch (e) {
+    } catch (e: any) {
       // アセットが見つからない場合は、index.htmlを返す（SPAのため）
       if (e.status === 404) {
         url.pathname = '/index.html'
