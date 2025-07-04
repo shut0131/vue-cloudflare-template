@@ -204,6 +204,13 @@ npx wrangler d1 execute [db-name] --remote --file=./migrations/[file].sql
 
 # Authentication
 npx wrangler login     # Login to Cloudflare
+
+# Git Workflow (IMPORTANT)
+git checkout -b feature/your-feature-name  # Create new branch
+# Make your changes
+git add -A
+git commit -m "feat: your feature description"
+gh pr create --title "Your PR title" --body "Description"  # Create PR using gh command
 ```
 
 ## Environment Configuration
@@ -227,6 +234,7 @@ npx wrangler secret put SECRET_NAME
 5. **Sessions**: Use HTTP-only cookies for security
 6. **Theme**: Use CSS variables for all color values
 7. **Security**: Never expose sensitive data, use Wrangler secrets, HTTP-only cookies
+8. **Version Control**: Always create a new branch for changes and use gh command to create pull requests
 
 ## Deployment Notes
 
