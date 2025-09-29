@@ -10,81 +10,26 @@ const increment = (): void => {
 </script>
 
 <template>
-  <div class="hello-world">
-    <h1>{{ message }}</h1>
-    <p>
+  <div class="text-center p-8">
+    <h1 style="color: var(--color-secondary)" class="mb-8">{{ message }}</h1>
+    <p class="text-gray-700 dark:text-gray-300">
       This is a Vue 3 + Cloudflare Workers template with:
     </p>
-    <ul>
-      <li>Vue 3 with Composition API</li>
-      <li>Cloudflare Workers deployment</li>
-      <li>D1 Database integration</li>
-      <li>Dark/Light theme support</li>
-      <li>User session management</li>
+    <ul class="list-none p-0 my-8">
+      <li class="my-2 text-gray-600 dark:text-gray-400">Vue 3 with Composition API</li>
+      <li class="my-2 text-gray-600 dark:text-gray-400">Cloudflare Workers deployment</li>
+      <li class="my-2 text-gray-600 dark:text-gray-400">D1 Database integration</li>
+      <li class="my-2 text-gray-600 dark:text-gray-400">Dark/Light theme support</li>
+      <li class="my-2 text-gray-600 dark:text-gray-400">User session management</li>
     </ul>
     
-    <div class="counter">
-      <button @click="increment">Count is: {{ count }}</button>
+    <div class="my-8">
+      <button @click="increment" style="background-color: var(--color-secondary); color: white;" class="px-6 py-3 rounded-lg text-base cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">Count is: {{ count }}</button>
     </div>
     
-    <p class="info">
-      Edit <code>src/components/HelloWorld.vue</code> to get started.
+    <p class="mt-8 text-gray-600 dark:text-gray-400">
+      Edit <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-mono">src/components/HelloWorld.vue</code> to get started.
     </p>
   </div>
 </template>
 
-<style scoped>
-.hello-world {
-  text-align: center;
-  padding: 2rem;
-}
-
-h1 {
-  color: var(--accent-color);
-  margin-bottom: 2rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-li {
-  margin: 0.5rem 0;
-  color: var(--text-secondary);
-}
-
-.counter {
-  margin: 2rem 0;
-}
-
-button {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-button:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.3);
-}
-
-.info {
-  margin-top: 2rem;
-  color: var(--text-secondary);
-}
-
-code {
-  background-color: var(--bg-code);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-family: monospace;
-}
-</style>

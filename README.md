@@ -6,6 +6,7 @@ Vue 3 + TypeScript + Cloudflare Workers + D1 Database のフルスタックテ�
 
 - **Vue 3** (Composition API)
 - **TypeScript** (厳密な型チェック)
+- **Tailwind CSS** (ユーティリティファーストCSS)
 - **Cloudflare Workers** (エッジデプロイメント)
 - **D1 Database** (エッジSQLite)
 - **HTTP-only Cookie認証**
@@ -70,7 +71,8 @@ pnpm worker:deploy
 │   ├── composables/   # Vue Composables
 │   ├── mocks/         # MSWモックハンドラー
 │   ├── types/         # TypeScript型定義
-│   └── tests/         # テストファイル
+│   ├── tests/         # テストファイル
+│   └── style.css      # Tailwind CSSメインファイル
 ├── e2e/               # E2Eテスト
 └── migrations/        # D1マイグレーション
 ```
