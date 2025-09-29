@@ -26,142 +26,41 @@ const showApiExample = ref<boolean>(false)
 </script>
 
 <template>
-  <div class="app">
-    <header class="app-header">
-      <h1>Vue + Cloudflare Workers Template</h1>
-      <button @click="toggleTheme" class="theme-button" :title="`Theme: ${getThemeLabel()}`">
+  <div class="min-h-screen flex flex-col bg-white dark:bg-black text-black dark:text-white">
+    <header style="background-color: var(--color-primary)" class="text-white px-8 py-4 flex justify-between items-center shadow-lg">
+      <h1 class="text-2xl font-bold">Vue + Cloudflare Workers Template</h1>
+      <button @click="toggleTheme" class="bg-transparent border border-white text-white p-2 rounded hover:bg-white/10 hover:scale-110 transition-all duration-300 w-10 h-10 flex items-center justify-center text-xl" :title="`Theme: ${getThemeLabel()}`">
         {{ getThemeIcon() }}
       </button>
     </header>
     
-    <main class="app-main">
-      <nav class="navigation">
+    <main class="flex-1 flex flex-col">
+      <nav class="bg-gray-50 dark:bg-gray-800 px-8 py-4 flex gap-4 border-b border-gray-200 dark:border-gray-700">
         <button 
           @click="showApiExample = false" 
-          :class="{ active: !showApiExample }"
+          :class="['px-4 py-2 rounded transition-all duration-300', !showApiExample ? 'text-white' : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100']"
+          :style="!showApiExample ? 'background-color: var(--color-primary)' : ''"
         >
           Home
         </button>
         <button 
           @click="showApiExample = true"
-          :class="{ active: showApiExample }"
+          :class="['px-4 py-2 rounded transition-all duration-300', showApiExample ? 'text-white' : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100']"
+          :style="showApiExample ? 'background-color: var(--color-primary)' : ''"
         >
           API Example
         </button>
       </nav>
       
-      <div class="content">
+      <div class="flex-1 p-8">
         <HelloWorld v-if="!showApiExample" />
         <ApiExample v-else />
       </div>
     </main>
     
-    <footer class="app-footer">
+    <footer class="bg-gray-50 dark:bg-gray-800 p-4 text-center border-t border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400">
       <p>Built with Vue 3 + Cloudflare Workers + D1</p>
     </footer>
   </div>
 </template>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.app-header {
-  background-color: var(--header-bg);
-  color: var(--header-text);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px var(--shadow-color);
-}
-
-.app-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.theme-button {
-  background: transparent;
-  border: 1px solid var(--header-text);
-  color: var(--header-text);
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-
-.theme-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
-}
-
-.app-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation {
-  background-color: var(--bg-secondary);
-  padding: 1rem 2rem;
-  display: flex;
-  gap: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.navigation button {
-  background-color: transparent;
-  border: none;
-  color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-
-.navigation button:hover {
-  background-color: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.navigation button.active {
-  background-color: var(--accent-color);
-  color: white;
-}
-
-.content {
-  flex: 1;
-  padding: 2rem;
-}
-
-.app-footer {
-  background-color: var(--bg-secondary);
-  padding: 1rem;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-secondary);
-}
-</style>

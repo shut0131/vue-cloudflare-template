@@ -9,6 +9,7 @@ This is a modern full-stack TypeScript template combining Vue 3 frontend with Cl
 - **Vue 3** (Composition API) with TypeScript
 - **Vite** - Fast build tool with HMR and TypeScript support
 - **TypeScript** - Strict type checking throughout (v5.8.3)
+- **Tailwind CSS** - Utility-first CSS framework with dark mode support
 - **HTTP-only Cookies** - Secure session management
 - **MSW** - Mock Service Worker for API testing
 - **Vitest** - Unit testing framework with TypeScript

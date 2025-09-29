@@ -66,113 +66,30 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="api-example">
-    <h2>API Integration Example</h2>
+  <div class="p-8 max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-black dark:text-white mb-6">API Integration Example</h2>
     
-    <div class="user-info">
-      <p>Session ID: <code>{{ sessionId || 'Initializing...' }}</code></p>
+    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-6">
+      <p class="text-gray-700 dark:text-gray-300">Session ID: <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded font-mono text-sm">{{ sessionId || 'Initializing...' }}</code></p>
     </div>
     
-    <div class="actions">
-      <button @click="fetchData" :disabled="loading">
+    <div class="flex gap-4 mb-6">
+      <button @click="fetchData" :disabled="loading" style="background-color: var(--color-secondary); color: white;" class="px-6 py-3 rounded-lg text-base cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
         {{ loading ? 'Loading...' : 'Fetch Data' }}
       </button>
-      <button @click="saveData" :disabled="loading">
+      <button @click="saveData" :disabled="loading" style="background-color: var(--color-secondary); color: white;" class="px-6 py-3 rounded-lg text-base cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
         {{ loading ? 'Saving...' : 'Save Data' }}
       </button>
     </div>
     
-    <div v-if="error" class="error">
+    <div v-if="error" class="bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 p-4 rounded-lg mb-4">
       Error: {{ error }}
     </div>
     
-    <div v-if="data" class="result">
-      <h3>Response:</h3>
-      <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+    <div v-if="data" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-0 mb-4">Response:</h3>
+      <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded overflow-x-auto m-0 text-sm">{{ JSON.stringify(data, null, 2) }}</pre>
     </div>
   </div>
 </template>
 
-<style scoped>
-.api-example {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-h2 {
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-}
-
-.user-info {
-  background-color: var(--bg-secondary);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-}
-
-.user-info code {
-  background-color: var(--bg-code);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-family: monospace;
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-button {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-button:hover:not(:disabled) {
-  background-color: var(--accent-hover);
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.error {
-  background-color: #fee;
-  color: var(--error-color);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.dark .error {
-  background-color: rgba(239, 83, 80, 0.1);
-}
-
-.result {
-  background-color: var(--bg-secondary);
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-.result h3 {
-  margin-top: 0;
-  color: var(--text-primary);
-}
-
-.result pre {
-  background-color: var(--bg-code);
-  padding: 1rem;
-  border-radius: 4px;
-  overflow-x: auto;
-  margin: 0;
-}
-</style>
